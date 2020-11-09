@@ -52,7 +52,7 @@
 					$.each(resp.weather , function(index, weather){
 						console.log(weather.id);
 						
-						$('#test2').append("<tr><td>"+resp.name+"</td><td>"+weather.description+"</td><td>"+weather.main+"</td><td>"+weather.icon.imgURL+"</td></tr>")
+						$('#test2').append("<tr><td>"+resp.name+"</td><td>"+weather.description+"</td><td>"+weather.main+"</td></tr>")
 					});
 					$('#test').text('안녕');	
 				},
