@@ -30,26 +30,49 @@
 				success: function(resp) {
 					console.log(resp);
 					console.log("현재온도 : " + (resp.main.temp- 273.15));
+					console.log("현재습도 : "+ resp.main.humidity);
 					console.log("날씨 : " + resp.weather[0].description);
+<<<<<<< HEAD
+=======
+					console.log("상세날씨설명 : "+ resp.weather[0].description );
+	                console.log("날씨 이미지 : "+ resp.weather[0].icon );
+	                console.log("바람   : "+ resp.wind.speed );
+	                console.log("나라   : "+ resp.sys.country );
+	                console.log("도시이름  : "+ resp.name );
+	                console.log("구름  : "+ (resp.clouds.all) +"%" );
+					
+>>>>>>> 41ed8247ed57f732826ed185abaf0a63b816d2a7
 					$.each(resp.weather , function(index, weather){
 						console.log(weather.id);
 						$('#test2').append("<tr><td>"+resp.name+"</td><td>"+weather.description+"</td><td>"+weather.main+"</td></tr>")
 					});
+<<<<<<< HEAD
 					
 					$('#test').text('안녕');
 					
+=======
+					$('#test').text('안녕');	
+>>>>>>> 41ed8247ed57f732826ed185abaf0a63b816d2a7
 				},
 				error : function(resp){
-					
 				}
 			}) ;
 		});
+<<<<<<< HEAD
 			/* 		
 			var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
 			 $("html컴포넌트").attr("src", imgURL);
 			 */	
 	</script>
 	
+=======
+				
+			var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
+			 $("html컴포넌트").attr("src", imgURL);
+			 	
+			
+	</script>
+>>>>>>> 41ed8247ed57f732826ed185abaf0a63b816d2a7
   </head>
   <body>    
     <!-- Hero section -->
@@ -119,17 +142,14 @@
            			<thead>
            			
 	           		<tr>
-	           			<th>날씨
-	           			</th>
-	           			<th>날씨
-	           			</th>
+	           			<th>날씨</th>
+	           			<th>날씨</th>
+	           			<th>구름</th>
            			</tr>
            			
            			</thead>
            			
            			<tbody id = "test2">
-           			
-           			
            			</tbody>
            		</table>
               
