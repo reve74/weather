@@ -16,21 +16,11 @@
     <link rel="stylesheet" href="${contextPath}/resources/main/magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="${contextPath}/resources/main/css/bootstrap.min.css" />
     <link rel="stylesheet" href="${contextPath}/resources/main/css/templatemo-style.css" />
-    
-    <!--
-	The Town
-	https://templatemo.com/tm-525-the-town
-	-->
-	<script type="text/javascript"	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript"	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>	
 	
 	<script type="text/javascript">
-	
-	
 	var city = ['busan','seoul', 'tokyo']
 		$.each(city, function(index, data) {
-			
-			
-	
 		var apiURI = "http://api.openweathermap.org/data/2.5/weather?q="+data+"&appid=9c51e25b2a667933712dad39e89b2b58";
 			$.ajax({
 				url: apiURI,
@@ -41,38 +31,24 @@
 					console.log(resp);
 					console.log("현재온도 : " + (resp.main.temp- 273.15));
 					console.log("날씨 : " + resp.weather[0].description);
-					
 					$.each(resp.weather , function(index, weather){
 						console.log(weather.id);
-						
 						$('#test2').append("<tr><td>"+resp.name+"</td><td>"+weather.description+"</td><td>"+weather.main+"</td></tr>")
-						
 					});
 					
-					
-					
-					
 					$('#test').text('안녕');
-					
-					
 					
 				},
 				error : function(resp){
 					
 				}
-				
-			
 			}) ;
 		});
-/* 		
+			/* 		
 			var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
 			 $("html컴포넌트").attr("src", imgURL);
 			 */	
-			
 	</script>
-	
-	
-	
 	
   </head>
   <body>    
