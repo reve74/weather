@@ -5,12 +5,32 @@
 <html>
 <head>
 	<title>Home</title>
+<script type="text/javascript"	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>		
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	$.ajax({
+		url: "/weather/api.do",
+		dataType: "json",
+		type: "GET",
+		async: "false",
+		success: function(aaa) {
+			console.log(aaa);
+		}
+	});
+	
+	
+});
+
+</script>	
 </head>
 <body>
 <h1>
 	Hello world!  
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+	
+
 </body>
 </html>

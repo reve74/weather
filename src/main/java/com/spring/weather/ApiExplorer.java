@@ -9,14 +9,23 @@ import java.io.IOException;
 
 public class ApiExplorer {
     public static void main(String[] args) throws IOException {
+
+        
+    }
+    
+    String api11() throws IOException {
+    	
+    	
+    	
         StringBuilder urlBuilder = new StringBuilder("http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=QVWDM9ZUKGDJ%2BZ46qFzKBatWi3Kc8Fp1WdNpIaERUzVjt0Xq4ha9p7BYowPw079DWuvSKjQrXlIFSSI8%2FhvE0w%3D%3D"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*í•œ í˜ì´ì§€ ê²°ê³¼ ìˆ˜*/
-        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*í˜ì´ì§€ ë²ˆí˜¸*/
-        urlBuilder.append("&" + URLEncoder.encode("stationName","UTF-8") + "=" + URLEncoder.encode("ì¢…ë¡œêµ¬", "UTF-8")); /*ì¸¡ì •ì†Œ ì´ë¦„*/
-        urlBuilder.append("&" + URLEncoder.encode("dataTerm","UTF-8") + "=" + URLEncoder.encode("DAILY", "UTF-8")); /*ìš”ì²­ ë°ì´í„°ê¸°ê°„ (í•˜ë£¨ : DAILY, í•œë‹¬ : MONTH, 3ë‹¬ : 3MONTH)*/
-        urlBuilder.append("&" + URLEncoder.encode("ver","UTF-8") + "=" + URLEncoder.encode("1.3", "UTF-8")); /*ë²„ì „ë³„ ìƒì„¸ ê²°ê³¼ ì°¸ê³ ë¬¸ì„œ ì°¸ì¡°*/
-        URL url = new URL(urlBuilder.toString());
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*ÇÑ ÆäÀÌÁö °á°ú ¼ö*/
+        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*ÆäÀÌÁö ¹øÈ£*/
+        urlBuilder.append("&" + URLEncoder.encode("stationName","UTF-8") + "=" + URLEncoder.encode("Á¾·Î±¸", "UTF-8")); /*ÃøÁ¤¼Ò ÀÌ¸§*/
+        urlBuilder.append("&" + URLEncoder.encode("dataTerm","UTF-8") + "=" + URLEncoder.encode("DAILY", "UTF-8")); /*¿äÃ» µ¥ÀÌÅÍ±â°£ (ÇÏ·ç : DAILY, ÇÑ´Ş : MONTH, 3´Ş : 3MONTH)*/
+        urlBuilder.append("&" + URLEncoder.encode("ver","UTF-8") + "=" + URLEncoder.encode("1.3", "UTF-8")); /*¹öÀüº° »ó¼¼ °á°ú Âü°í¹®¼­ ÂüÁ¶*/
+        urlBuilder.append("&" + URLEncoder.encode("_returnType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*¹öÀüº° »ó¼¼ °á°ú Âü°í¹®¼­ ÂüÁ¶*/
+          URL url = new URL(urlBuilder.toString());
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setRequestProperty("Content-type", "application/json");
@@ -34,6 +43,8 @@ public class ApiExplorer {
         }
         rd.close();
         conn.disconnect();
-        System.out.println(sb.toString());
-    }
+		return sb.toString();
+	}
+    
+    
 }
