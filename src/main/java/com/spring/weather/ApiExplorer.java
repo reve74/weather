@@ -10,21 +10,20 @@ import java.io.IOException;
 public class ApiExplorer {
     public static void main(String[] args) throws IOException {
 
+    	String a = "ë¶€ì‚°ì§„êµ¬";
+    	System.out.println(api11(a));
         
     }
     
-    String api11() throws IOException {
-    	
-    	
-    	
-        StringBuilder urlBuilder = new StringBuilder("http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty"); /*URL*/
-        urlBuilder.append("?" + URLEncoder.encode("ServiceKey","UTF-8") + "=QVWDM9ZUKGDJ%2BZ46qFzKBatWi3Kc8Fp1WdNpIaERUzVjt0Xq4ha9p7BYowPw079DWuvSKjQrXlIFSSI8%2FhvE0w%3D%3D"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*ÇÑ ÆäÀÌÁö °á°ú ¼ö*/
-        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*ÆäÀÌÁö ¹øÈ£*/
-        urlBuilder.append("&" + URLEncoder.encode("stationName","UTF-8") + "=" + URLEncoder.encode("Á¾·Î±¸", "UTF-8")); /*ÃøÁ¤¼Ò ÀÌ¸§*/
-        urlBuilder.append("&" + URLEncoder.encode("dataTerm","UTF-8") + "=" + URLEncoder.encode("DAILY", "UTF-8")); /*¿äÃ» µ¥ÀÌÅÍ±â°£ (ÇÏ·ç : DAILY, ÇÑ´Þ : MONTH, 3´Þ : 3MONTH)*/
-        urlBuilder.append("&" + URLEncoder.encode("ver","UTF-8") + "=" + URLEncoder.encode("1.3", "UTF-8")); /*¹öÀüº° »ó¼¼ °á°ú Âü°í¹®¼­ ÂüÁ¶*/
-        urlBuilder.append("&" + URLEncoder.encode("_returnType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*¹öÀüº° »ó¼¼ °á°ú Âü°í¹®¼­ ÂüÁ¶*/
+    static String api11(String a) throws IOException {
+    	StringBuilder urlBuilder = new StringBuilder("http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty"); /*URL*/
+        urlBuilder.append("?ServiceKey=QVWDM9ZUKGDJ%2BZ46qFzKBatWi3Kc8Fp1WdNpIaERUzVjt0Xq4ha9p7BYowPw079DWuvSKjQrXlIFSSI8%2FhvE0w%3D%3D"); /*Service Key*/
+        urlBuilder.append("&numOfRows=1"); /*                */
+        urlBuilder.append("&pageNo=1"); /*         È£*/
+        urlBuilder.append("&stationName="+a); /*        Ì¸ */
+        urlBuilder.append("&dataTerm=DAILY"); /*  Ã»      Í±â°£ ( Ï·  : DAILY,  Ñ´  : MONTH, 3   : 3MONTH)*/
+        urlBuilder.append("&ver=1.3"); /*                         */
+        urlBuilder.append("&_returnType=json"); /*                         */
           URL url = new URL(urlBuilder.toString());
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");

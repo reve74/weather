@@ -11,16 +11,19 @@
 $(document).ready(function() {
 	
 	$.ajax({
-		url: "/weather/api.do",
+		url: "api.do",
 		dataType: "json",
 		type: "GET",
+		data : {a : "부산진구"},
 		async: "false",
-		success: function(aaa) {
-			console.log(aaa);
-		}
+		success: function(data) {
+			console.log(data);
+			console.log(data.list[0]);
+		},
+		error:function(data){
+			alert("실패!");    	  
+	    }
 	});
-	
-	
 });
 
 </script>	

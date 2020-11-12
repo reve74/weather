@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -40,10 +41,10 @@ public class HomeController {
 	
 	@RequestMapping(value = "/api.do", method = RequestMethod.GET)
 	@ResponseBody
-	public void home1(HttpServletRequest reqeust,
+	public void home1(@RequestParam String a, HttpServletRequest reqeust,
 		HttpServletResponse response) throws Exception { 
  
-		String s = api.api11();
+		String s = api.api11(a);
 		System.out.println(s);
 		response.getWriter().print(s);
 	
