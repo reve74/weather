@@ -26,7 +26,6 @@
 				url: apiURI,
 				dataType: "json",
 				type: "GET",
-//				async: "false", //비동기식 이거 왜 하는거야 안해도됨
 				success: function(resp) {
 					console.log(resp);
 					console.log("현재온도 : " + (resp.main.temp- 273.15));
